@@ -125,8 +125,11 @@ def train_loop():
         time_ = timer.getElapseTime()
         if i > n_dry - 1:
             total_backward += time_
+        model.cleargrads()
 
-        del out
+        del out, x, y
+        if args.arch == 'googlenet':
+            del out1, out2, out3
     print("Average Forward:  ", total_forward  / count, " ms")
     print("Average Backward: ", total_backward / count, " ms")
     print("Average Total:    ", (total_forward + total_backward) / count, " ms")
