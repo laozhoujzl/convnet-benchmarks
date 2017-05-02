@@ -1,0 +1,5 @@
+vgg19
+Average Forward:   196.9546905517578  ms
+Average Backward:  502.4266021728516  ms
+Average Total:     699.3812927246094  ms
+
