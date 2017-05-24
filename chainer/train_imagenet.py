@@ -40,6 +40,9 @@ elif args.arch == 'vgg16':
 elif args.arch == 'vgg19':
     import vgg19
     model = vgg19.VGG19()
+elif args.arch == 'unet':
+    import unet
+    model = unet.UNET()
 else:
     raise ValueError('Invalid architecture name')
 

@@ -1,5 +1,5 @@
 vgg19
-Average Forward:   196.8041259765625  ms
-Average Backward:  500.7821746826172  ms
-Average Total:     697.5863006591796  ms
+Average Forward:   197.95122222900392  ms
+Average Backward:  501.14342041015624  ms
+Average Total:     699.0946426391602  ms
 
