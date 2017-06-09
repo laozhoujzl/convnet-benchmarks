@@ -43,6 +43,15 @@ elif args.arch == 'vgg19':
 elif args.arch == 'unet':
     import unet
     model = unet.UNET()
+elif args.arch == 'resnet50':
+    import resnet
+    model = resnet.ResNet([3, 4, 6, 3])
+elif args.arch == 'resnet101':
+    import resnet
+    model = resnet.ResNet([3, 4, 23, 3])
+elif args.arch == 'resnet152':
+    import resnet
+    model = resnet.ResNet([3, 8, 36, 3])
 else:
     raise ValueError('Invalid architecture name')
 
@@ -61,6 +70,7 @@ chainer.cuda.set_max_workspace_size(workspace_size)
 
 chainer.config.train = True
 
+
 class Timer():
     def preprocess(self):
         if xp == np:
@@ -69,22 +79,25 @@ class Timer():
             self.start = xp.cuda.Event()
             self.end = xp.cuda.Event()
             self.start.record()
+
     def postprocess(self):
         if xp == np:
             self.end = time.time()
         else:
             self.end.record()
             self.end.synchronize()
+
     def getElapseTime(self):
         if xp == np:
-            return (self.end - self.start)*1000
+            return (self.end - self.start) * 1000
         else:
             return xp.cuda.get_elapsed_time(self.start, self.end)
 
 
 def train_loop():
     # Trainer
-    data = np.ndarray((args.batchsize, 3, model.insize, model.insize), dtype=np.float32)
+    data = np.ndarray((args.batchsize, 3, model.insize,
+                       model.insize), dtype=np.float32)
     data.fill(33333)
     total_forward = 0
     total_backward = 0
@@ -98,7 +111,7 @@ def train_loop():
     for i in range(niter):
         x = xp.asarray(data)
         y = xp.asarray(label)
-        
+
         if args.arch == 'googlenet':
             timer.preprocess()
             out1, out2, out3 = model.forward(x)
@@ -133,9 +146,10 @@ def train_loop():
         del out, x, y
         if args.arch == 'googlenet':
             del out1, out2, out3
-    print("Average Forward:  ", total_forward  / count, " ms")
+    print("Average Forward:  ", total_forward / count, " ms")
     print("Average Backward: ", total_backward / count, " ms")
     print("Average Total:    ", (total_forward + total_backward) / count, " ms")
     print("")
+
 
 train_loop()
