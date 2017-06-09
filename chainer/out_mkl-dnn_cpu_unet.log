@@ -1,5 +1,4 @@
-unet
-Average Forward:   7049.09451007843  ms
-Average Backward:  18594.375371932983  ms
-Average Total:     25643.469882011414  ms
-
+Chainer version: 2.0.0
+CuPy version: 1.0.0.1
+CUDA: True
+CUDA Version: V8.0.61

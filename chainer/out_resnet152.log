@@ -1,0 +1,11 @@
+resnet152
+Chainer version: 2.0.0
+CuPy version: 1.0.0.1
+CUDA: True
+CUDA Version: V8.0.61
+cuDNN: True
+cuDNN Version: 6021
+Average Forward:   157.50528259277343  ms
+Average Backward:  314.8226318359375  ms
+Average Total:     472.3279144287109  ms
+

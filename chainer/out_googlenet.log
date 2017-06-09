@@ -1,5 +1,11 @@
 googlenet
-Average Forward:   131.3579071044922  ms
-Average Backward:  211.50631256103514  ms
-Average Total:     342.86421966552734  ms
+Chainer version: 2.0.0
+CuPy version: 1.0.0.1
+CUDA: True
+CUDA Version: V8.0.61
+cuDNN: True
+cuDNN Version: 6021
+Average Forward:   132.84322967529297  ms
+Average Backward:  216.8174087524414  ms
+Average Total:     349.6606384277344  ms
 

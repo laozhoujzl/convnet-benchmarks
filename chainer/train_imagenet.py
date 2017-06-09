@@ -7,6 +7,7 @@ import numpy as np
 from chainer import cuda
 from chainer import optimizers
 
+
 parser = argparse.ArgumentParser(
     description=' convnet benchmarks on imagenet')
 parser.add_argument('--arch', '-a', default='alexnet',
@@ -16,6 +17,8 @@ parser.add_argument('--batchsize', '-B', type=int, default=128,
                     help='minibatch size')
 parser.add_argument('--gpu', '-g', default=0, type=int,
                     help='GPU ID (negative value indicates CPU)')
+parser.add_argument('--insize', '-i', default=224, type=int,
+                    help='The size of input images')
 
 args = parser.parse_args()
 xp = cuda.cupy if args.gpu >= 0 else np
@@ -55,6 +58,9 @@ elif args.arch == 'resnet152':
 else:
     raise ValueError('Invalid architecture name')
 
+if 'resnet' in args.arch:
+    model.insize = args.insize
+
 if args.gpu >= 0:
     cuda.get_device(args.gpu).use()
     model.to_gpu()
@@ -69,6 +75,20 @@ import chainer
 chainer.cuda.set_max_workspace_size(workspace_size)
 
 chainer.config.train = True
+chainer.config.use_cudnn = 'always'
+
+import cupy
+
+print('Chainer version:', chainer.__version__)
+print('CuPy version:', cupy.__version__)
+print('CUDA:', chainer.cuda.available)
+if chainer.cuda.available:
+    cuda_v = cupy.cuda.compiler._get_nvcc_version().split()[-1].decode('utf-8')
+    print('CUDA Version:', cuda_v)
+print('cuDNN:', chainer.cuda.cudnn_enabled)
+if chainer.cuda.cudnn_enabled:
+    cudnn_v = cupy.cudnn._cudnn_version
+    print('cuDNN Version:', cudnn_v)
 
 
 class Timer():
@@ -98,6 +118,7 @@ def train_loop():
     # Trainer
     data = np.ndarray((args.batchsize, 3, model.insize,
                        model.insize), dtype=np.float32)
+    print('Input data shape:', data.shape)
     data.fill(33333)
     total_forward = 0
     total_backward = 0

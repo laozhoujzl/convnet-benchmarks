@@ -1,5 +1,11 @@
 unet
-Average Forward:   210.99503631591796  ms
-Average Backward:  299.0334167480469  ms
-Average Total:     510.02845306396483  ms
+Chainer version: 2.0.0
+CuPy version: 1.0.0.1
+CUDA: True
+CUDA Version: V8.0.61
+cuDNN: True
+cuDNN Version: 6021
+Average Forward:   214.46103057861328  ms
+Average Backward:  309.7285888671875  ms
+Average Total:     524.1896194458008  ms
 

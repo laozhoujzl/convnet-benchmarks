@@ -1,5 +1,11 @@
 vgg19
-Average Forward:   197.2772430419922  ms
-Average Backward:  503.8947479248047  ms
-Average Total:     701.1719909667969  ms
+Chainer version: 2.0.0
+CuPy version: 1.0.0.1
+CUDA: True
+CUDA Version: V8.0.61
+cuDNN: True
+cuDNN Version: 6021
+Average Forward:   199.54913635253905  ms
+Average Backward:  515.2228118896485  ms
+Average Total:     714.7719482421875  ms
 

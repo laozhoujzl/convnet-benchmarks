@@ -1,5 +1,11 @@
 overfeat
-Average Forward:   75.41926498413086  ms
-Average Backward:  142.65408935546876  ms
-Average Total:     218.0733543395996  ms
+Chainer version: 2.0.0
+CuPy version: 1.0.0.1
+CUDA: True
+CUDA Version: V8.0.61
+cuDNN: True
+cuDNN Version: 6021
+Average Forward:   76.32969436645507  ms
+Average Backward:  144.1822280883789  ms
+Average Total:     220.51192245483398  ms
 

@@ -1,5 +1,4 @@
-vgga
-Average Forward:   1923.4302282333374  ms
-Average Backward:  5158.780717849731  ms
-Average Total:     7082.210946083069  ms
-
+Chainer version: 2.0.0
+CuPy version: 1.0.0.1
+CUDA: True
+CUDA Version: V8.0.61

@@ -4,6 +4,9 @@ import chainer.functions as F
 
 
 class ResNet(chainer.Chain):
+
+    insize = 224
+
     def __init__(self, n_blocks=[3, 8, 36, 3]):
         w = chainer.initializers.HeNormal()
         super(ResNet, self).__init__()
@@ -17,7 +20,7 @@ class ResNet(chainer.Chain):
             self.res5 = ResBlock(n_blocks[3], 1024, 512, 2048)
             self.fc6 = L.Linear(2048, 1000)
 
-    def __call__(self, x):
+    def forward(self, x):
         h = self.bn1(self.conv1(x))
         h = F.max_pooling_2d(F.relu(h), 2, 2)
         h = self.res2(h)

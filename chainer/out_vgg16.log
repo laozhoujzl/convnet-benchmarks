@@ -1,5 +1,11 @@
 vgg16
-Average Forward:   163.57044982910156  ms
-Average Backward:  416.6947326660156  ms
-Average Total:     580.2651824951172  ms
+Chainer version: 2.0.0
+CuPy version: 1.0.0.1
+CUDA: True
+CUDA Version: V8.0.61
+cuDNN: True
+cuDNN Version: 6021
+Average Forward:   166.19908294677734  ms
+Average Backward:  425.9136932373047  ms
+Average Total:     592.112776184082  ms
 

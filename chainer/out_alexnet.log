@@ -1,5 +1,11 @@
 alexnet
-Average Forward:   18.410598373413087  ms
-Average Backward:  36.6698055267334  ms
-Average Total:     55.080403900146486  ms
+Chainer version: 2.0.0
+CuPy version: 1.0.0.1
+CUDA: True
+CUDA Version: V8.0.61
+cuDNN: True
+cuDNN Version: 6021
+Average Forward:   18.663350677490236  ms
+Average Backward:  36.891273498535156  ms
+Average Total:     55.55462417602539  ms
 
